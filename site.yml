@@ -1,0 +1,11 @@
+---
+- hosts: local
+  become: True
+  roles:
+  - package
+  - user
+  - envconf
+  - zsh
+  - tmux
+  - vim
+  - dotfile

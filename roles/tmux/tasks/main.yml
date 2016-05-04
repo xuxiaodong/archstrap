@@ -1,0 +1,12 @@
+---
+- name: clone tmux config
+  git: repo=git://github.com/xuxiaodong/tmuxen.git dest={{ base_dir }}/tmuxen accept_hostkey=yes
+
+- name: set attributes
+  file: path={{ base_dir }}/tmuxen state=directory owner={{ users[0] }} group=wheel recurse=yes
+
+- name: create symbolic link
+  file: src={{ base_dir }}/tmuxen/{{ item.src }} dest={{ item.dest }} state=link owner={{ users[0] }} group=wheel
+  with_items:
+  - { src: "_tmux.conf", dest: "{{ home_dir }}/.tmux.conf" }
+  - { src: "tmuxen", dest: "{{ home_dir }}/bin/tmuxen" }

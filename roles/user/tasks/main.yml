@@ -1,0 +1,5 @@
+---
+- name: add new user
+  user: name={{ item }} shell=/bin/zsh group=wheel
+  with_items: 
+  - "{{ users }}"

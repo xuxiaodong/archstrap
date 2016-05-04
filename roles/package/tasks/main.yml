@@ -1,0 +1,8 @@
+---
+- name: update pacman
+  pacman: update_cache=yes
+
+- name: install packages
+  pacman: name={{ item }} state=latest
+  with_items: 
+  - "{{ pkgs }}"

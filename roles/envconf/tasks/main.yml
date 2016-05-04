@@ -1,0 +1,3 @@
+---
+- name: check ~/envconf
+  file: path={{ base_dir }} state=directory owner={{ users[0] }} group=wheel

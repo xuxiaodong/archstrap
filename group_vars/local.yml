@@ -1,0 +1,73 @@
+---
+home_dir: /home/xiaodong
+base_dir: "{{ home_dir }}/envconf"
+
+users:
+- xiaodong
+
+pkgs:
+# cli
+- bc
+- cloc
+- cronie
+- dfc
+- git
+- htop
+- imagemagick
+- ipython
+- lshw
+- lsof
+- nmap
+- openssh
+- pwgen
+- rxvt-unicode
+- tmux
+- vim
+- wget
+- zsh
+# for hardware
+- acpi
+- alsa-lib
+- alsa-utils
+# x11
+- xf86-input-evdev
+- xf86-input-synaptics
+- xf86-video-intel
+- xorg-server
+- xorg-xinit
+- xorg-xrandr
+- xorg-xev
+# font
+- noto-fonts
+- noto-fonts-cjk
+- ttf-dejavu
+# desktop
+- compton
+- dmenu
+- slock
+- unclutter
+# ime
+- fcitx
+- fcitx-configtool
+# app
+- feh
+- ffmpeg
+- firefox
+- gimp
+- libreoffice-fresh
+- mpv
+- virtualbox
+- virtualbox-host-modules-arch
+- zathura
+- zathura-pdf-poppler
+# lang
+- go
+- go-tools
+- lua52
+- nodejs
+- npm
+- ruby
+# misc
+- net-tools
+- pptpclient
+- qt4

@@ -1,0 +1,12 @@
+---
+- name: clone vim config
+  git: repo=git://github.com/xuxiaodong/vimenv.git dest={{ base_dir }}/vimenv accept_hostkey=yes
+
+- name: set attributes
+  file: path={{ base_dir }}/vimenv state=directory owner={{ users[0] }} group=wheel recurse=yes
+
+- name: create symbolic link
+  file: src={{ base_dir }}/vimenv/{{ item.src }} dest={{ home_dir }}/{{ item.dest }} state=link owner={{ users[0] }} group=wheel
+  with_items:
+  - { src: "_vimrc", dest: ".vimrc" }
+  - { src: "_vim", dest: ".vim" }
