@@ -10,9 +10,21 @@
   with_items:
   - .gtkrc-2.0
   - .gtkrc.mine
+  - .irssi
+  - .mplayer
   - .themes
   - .Xdefaults
   - .Xdefaults.d
   - .xinitrc
   - .xmodmaprc
   - .zprofile
+
+- name: for ipython (check directory)
+  file: path={{ home_dir }}/.ipython/profile_toyland state=directory owner={{ users[0] }} group=wheel
+
+- name: for ipython (symbolic link)
+  file: src={{ base_dir }}/dotman/.ipython/profile_toyland/{{ item }} dest={{ home_dir }}/.ipython/profile_toyland/{{ item }} state=link owner={{ users[0] }} group=wheel
+  with_items:
+  - ipython_config.py
+  - ipython_console_config.py
+  - ipython_kernel_config.py
