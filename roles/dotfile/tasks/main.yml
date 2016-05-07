@@ -8,10 +8,13 @@
 - name: create symbolic link
   file: src={{ base_dir }}/dotman/{{ item }} dest={{ home_dir }}/{{ item }} state=link owner={{ users[0] }} group=wheel
   with_items:
+  - .cmus
   - .gtkrc-2.0
   - .gtkrc.mine
   - .irssi
   - .mplayer
+  - .mutt
+  - .rtorrent.rc
   - .themes
   - .Xdefaults
   - .Xdefaults.d

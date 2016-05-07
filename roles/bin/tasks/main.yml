@@ -8,5 +8,6 @@
 - name: create symbolic link
   file: src={{ base_dir }}/bin/{{ item }} dest={{ home_dir }}/bin/{{ item }} state=link owner={{ users[0] }} group=wheel
   with_items:
+  - makeaur.sh
   - uptime
   - vimpager
