@@ -1,5 +1,5 @@
 ---
-home_dir: /home/xiaodong
+home_dir: "/home/{{ users[0] }}"
 base_dir: "{{ home_dir }}/envconf"
 
 users:
@@ -47,12 +47,13 @@ pkgs:
 - ruby
 # x11
 - xf86-input-evdev
-- xf86-input-synaptics
+- xf86-input-libinput
 - xf86-video-intel
 - xorg-server
-- xorg-xinit
-- xorg-xrandr
 - xorg-xev
+- xorg-xinit
+- xorg-xinput
+- xorg-xrandr
 # font
 - noto-fonts
 - noto-fonts-cjk
@@ -62,6 +63,7 @@ pkgs:
 - dmenu
 - slock
 - unclutter
+- xclip
 # ime
 - fcitx
 - fcitx-configtool

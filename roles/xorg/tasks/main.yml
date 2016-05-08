@@ -1,0 +1,6 @@
+---
+- name: xorg config
+  copy: src={{ item }} dest=/etc/X11/xorg.conf.d/{{ item }} owner=root group=root mode=0644
+  with_items:
+  - 20-intel.conf
+  - 30-touchpad.conf

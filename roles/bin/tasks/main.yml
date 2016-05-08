@@ -1,6 +1,6 @@
 ---
 - name: clone ~/bin
-  git: repo=git://github.com/xuxiaodong/bin.git dest={{ base_dir }}/bin accept_hostkey=yes
+  git: repo=git://github.com/xuxiaodong/bin.git dest={{ base_dir }}/bin accept_hostkey=yes force=yes
 
 - name: set attributes
   file: path={{ base_dir }}/bin state=directory owner={{ users[0] }} group=wheel recurse=yes
@@ -8,6 +8,8 @@
 - name: create symbolic link
   file: src={{ base_dir }}/bin/{{ item }} dest={{ home_dir }}/bin/{{ item }} state=link owner={{ users[0] }} group=wheel
   with_items:
+  - gittossh.sh
   - makeaur.sh
+  - twomonitor.sh
   - uptime
   - vimpager
