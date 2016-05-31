@@ -11,3 +11,5 @@
   - dotfile
   - bin
   - xorg
+  - etc
+  - boot

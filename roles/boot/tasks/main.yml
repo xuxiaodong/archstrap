@@ -1,0 +1,10 @@
+---
+- name: boot loader
+  template: src=loader.conf.j2 dest=/boot/loader/loader.conf owner=root group=root mode=0644
+
+- name: boot entries
+  template: src={{ item }}.conf.j2 dest=/boot/loader/entries/{{ item }}.conf owner=root group=root mode=0644
+  with_items:
+  - arch
+  - arch-fallback
+  - arch-mainline

@@ -1,0 +1,5 @@
+---
+- name: etc config
+  copy: src={{ item }} dest=/etc/{{ item }} owner=root group=root mode=0644
+  with_items:
+  - vconsole.conf
