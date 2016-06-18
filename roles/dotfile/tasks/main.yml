@@ -32,19 +32,20 @@
   - ipython_console_config.py
   - ipython_kernel_config.py
 
-- name: check ~/.config/{gtk-3.0,rofi,yabar}
+- name: check ~/.config/{gtk-3.0,psd,rofi,sxhkd,yabar}
   file: path={{ home_dir }}/.config/{{ item }} state=directory owner={{ users[0] }} group=wheel recurse=yes
   with_items:
   - gtk-3.0
+  - psd
   - rofi
+  - sxhkd
   - yabar
 
 - name: for ~/.config (symbolic link)
   file: src={{ base_dir }}/dotman/{{ item.src }} dest={{ home_dir }}/.config/{{ item.dest }} state=link owner={{ users[0] }} group=wheel
   with_items:
-  - { src: "settings.ini", dest: "gtk-3.0/settings.ini" }
+  - { src: "psd.conf", dest: "psd/psd.conf" }
   - { src: "rofi.conf", dest: "rofi/config" }
+  - { src: "settings.ini", dest: "gtk-3.0/settings.ini" }
+  - { src: "sxhkdrc", dest: "sxhkd/sxhkdrc" }
   - { src: "yabar.conf", dest: "yabar/yabar.conf" }
-
-- name: for devilspie (check directory)
-  file: path={{ home_dir }}/.devilspie state=directory owner={{ users[0] }} group=wheel
